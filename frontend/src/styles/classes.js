@@ -15,7 +15,7 @@ export const header = {
   toggles: "flex items-center gap-5",
 };
 
-export const uploadCard = {
+export const uploadCard = { 
   card: "bg-white dark:bg-gray-900 rounded-3xl shadow-2xl overflow-hidden mb-16 border border-gray-200 dark:border-gray-800",
   padding: "p-10 md:p-14",
   dropArea: "border-3 border-dashed border-indigo-300 dark:border-indigo-600 rounded-3xl p-16 text-center hover:border-indigo-500 dark:hover:border-indigo-400 transition-all bg-indigo-50/30 dark:bg-indigo-950/30",
