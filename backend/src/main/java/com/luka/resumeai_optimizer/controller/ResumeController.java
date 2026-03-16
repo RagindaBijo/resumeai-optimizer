@@ -14,7 +14,11 @@ import java.io.IOException;
 
 @RestController
 @RequestMapping("/api/resume")
-@CrossOrigin(origins = "*")  // For dev only — allow frontend calls (later restrict to your Vercel domain)
+@CrossOrigin(origins = {
+        "https://resumeai-optimizer-five.vercel.app",
+        "http://localhost:5173",           // your local Vite dev server
+        "http://localhost:5174"            // sometimes Vite uses next port
+})  // For dev only — allow frontend calls (later restrict to your Vercel domain)
 public class ResumeController {
 
     private final ResumeService resumeService;

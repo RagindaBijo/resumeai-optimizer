@@ -15,30 +15,41 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    if (!file) {
-      setError(t('errorNoFile'));
-      return;
-    }
+ const handleSubmit = async (e) => {
+  e.preventDefault();
+  if (!file) {
+    setError(t('errorNoFile'));
+    return;
+  }
 
-    setLoading(true);
-    setError('');
-    setResult(null);
+  setLoading(true);
+  setError('');
+  setResult(null);
 
-    const formData = new FormData();
-    formData.append('resumeFile', file);
-    if (jobDesc.trim()) formData.append('jobDescription', jobDesc.trim());
+  const formData = new FormData();
+  formData.append('resumeFile', file);
+  if (jobDesc.trim()) formData.append('jobDescription', jobDesc.trim());
 
-    try {
-      const res = await axios.post('/api/resume/analyze', formData);
-      setResult(res.data);
-    } catch (err) {
-      setError(err.response?.data?.summary || err.message || t('errorDefault'));
-    } finally {
-      setLoading(false);
-    }
-  };
+  // Use environment variable in production, fallback to proxy/localhost in dev
+  const API_BASE = import.meta.env.VITE_API_URL || '/api';
+
+  try {
+    const res = await axios.post(`${API_BASE}/resume/analyze`, formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+    setResult(res.data);
+  } catch (err) {
+    setError(
+      err.response?.data?.summary ||
+      err.message ||
+      t('errorDefault')
+    );
+  } finally {
+    setLoading(false);
+  }
+};
 
   const copyToClipboard = (text) => {
     navigator.clipboard.writeText(text);
