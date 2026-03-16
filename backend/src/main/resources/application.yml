@@ -1,0 +1,26 @@
+server:
+  port: 8081  # avoid conflict if you have other apps on 8080
+
+spring:
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 10MB          # maximum size for a single uploaded file (PDF resume)
+      max-request-size: 15MB       # maximum size for the entire multipart request
+      file-size-threshold: 0       # write to disk immediately (helps with larger files)
+      location: ./tmp/uploads      # optional: where temporary files are stored
+
+  ai:
+    openai:
+      api-key: ${GROQ_API_KEY}
+      base-url: https://api.groq.com/openai   # corrected with /v1
+      chat:
+        options:
+          model: llama-3.3-70b-versatile
+          temperature: 0.7
+          max-tokens: 2000
+
+logging:
+  level:
+    org.springframework.web: INFO
+    org.apache.pdfbox: WARN      # reduce PDFBox font warnings
