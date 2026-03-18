@@ -112,7 +112,3 @@ function App() {
 
 export default App;
 
-
-
-
-give me changed one
