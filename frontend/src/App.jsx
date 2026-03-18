@@ -31,7 +31,7 @@ function App() {
     if (jobDesc.trim()) formData.append('jobDescription', jobDesc.trim());
 
     // Use environment variable in production, fallback to proxy/localhost in dev
-    const API_BASE = import.meta.env.VITE_API_URL || '/api';
+    const API_BASE = import.meta.env.VITE_API_URL + '/api';
 
     try {
       const res = await axios.post(`${API_BASE}/resume/analyze`, formData, {
