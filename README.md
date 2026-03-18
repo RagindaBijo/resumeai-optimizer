@@ -59,15 +59,11 @@ Built for job seekers who want to stand out in 2026.
 - Docker Desktop (optional — only if you want to test container locally)
 - Groq API key (get free credits at https://console.groq.com/keys)
 
+---
+---
+---
 
-
-
-
-
-
-
-
-# ResumeAI Optimizer
+# ResumeAI Optimizer(KA)
 
 AI-ით გაძლიერებული რეზიუმეს ანალიზატორი და ოპტიმიზატორი — ატვირთეთ თქვენი CV, მიიღეთ ATS ქულა, ძლიერი/სუსტი მხარეები, გაუმჯობესების წინადადებები და სრულად გადაწერილი ვერსია, ოპტიმიზებული თანამედროვე IT პოზიციებისთვის.
 
